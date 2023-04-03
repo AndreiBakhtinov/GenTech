@@ -1,0 +1,77 @@
+1. Students
+	-id(Int) Primary Key
+	-first_name (varchar(50)) not null
+	-last_name (varchar(50)) not null
+	-phone (varchar(20)) not null
+	-email (varchar(20)) not null
+	-group_id (int) foriegn key
+	-paid(decimal)
+	-created_at (date) not null
+	-updated_at (date)
+	-is_blocked (tiny(1))
+
+2. Teachers
+	-id(Int) Primary Key
+	-first_name (varchar(50)) not null
+	-last_name (varchar(50)) not null
+	-phone (varchar(20)) not null
+	-email (varchar(20)) not null
+	-started_at (date) not null
+	-finished_at (date)
+	-created_at (date) not null
+	-updated_at (date)
+
+3. Courses
+	-id(Int) Primary Key
+	-name(varchar(50)) not null
+	-duration(decimal) not null
+	-cost(decimal) not null
+	-created_at (date) not null
+	-updated_at (date)
+
+4. Subjects
+	-id(Int) Primary Key
+	-name(varchar(50)) not null
+	-created_at (date) not null
+	-updated_at (date)
+
+5. Courses_subjects
+	-id(Int) Primary Key
+	-course_id (int) foriegn key
+	-subject_id (int) foriegn key
+	-subject_duration(decimal) not null
+	-created_at (date) not null
+	-updated_at (date)
+
+6. subjects_teachers
+	-id(Int) Primary Key
+	-subject_id (int) foriegn key
+	-teacher_id (int) foriegn key
+	-created_at (date) not null
+	-updated_at (date)
+
+
+7. Groups
+	-id(Int) Primary Key
+	-courses_id (int) foriegn key
+	-name (varchar(50)) not null
+	-started_at (date) not null
+	-finished_at (date)
+	-created_at (date) not null
+	-updated_at (date)
+
+8. payments
+	-id(Int) Primary Key
+	-student_id (int) foriegn key
+	-sum (decimal) not null
+	-recieved_at (date) not null
+	-created_at (date) not null
+	-updated_at (date)
+
+9. Groups_teachers
+	-id(Int) Primary Key
+	-group_id (int) foriegn key
+	-subject_teacher_id (int) foriegn key
+	-created_at (date) not null
+	-updated_at (date)
+
