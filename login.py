@@ -5,3 +5,6 @@ def func1():
 def col2():
     """ col2 edition """
     pass
+
+def col1():
+    pass
