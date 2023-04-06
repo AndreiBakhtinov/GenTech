@@ -1,11 +1,9 @@
-//Спроектируйте схему реляционной БД для проекта онлайн-курсов.
-
-users.id (1:M) enrollments.user_id
-
-courses.id (1:M) enrollments.course_id
-
-courses.id (1:M) lessons.course_id
-
-lessons.id (1:M) progress.lesson_id
-
-users.id (1:M) progress.user_id
+customerID(M: 1) employeeID
+customerID(1: M) orders.orderIDD
+orderID(1: 1) customerID
+orderID(M: 1) employeeID
+orderDetails.orderDetailID(1: M) orderID
+orderDetailID(1: M) products.productID
+productID(M: 1) categoryID
+shipperID(1: M) orders.orderID
+suppliers.supplierID(1: M) products.productID
