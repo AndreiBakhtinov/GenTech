@@ -38,35 +38,6 @@ Table shippers {
   shipper_id integer
 }
 
-Table customers {
-  customer_id integer
-}
-
-
-Table categories {
-  category_id integer
-}
-
-Table employees {
-  employee_id integer
-}
-
-Table order_details {
-  order_detail_id integer
-}
-
-Table products {
-  product_id integer
-}
-
-Table orders {
-  order_id integer
-}
-
-Table shippers {
-  shipper_id integer
-}
-
 Ref: categories.category_id < products.product_id
 
 
@@ -80,3 +51,5 @@ Ref: "order_details"."order_detail_id" < "products"."product_id"
 Ref: "orders"."order_id" > "employees"."employee_id"
 
 Ref: "shippers"."shipper_id" < "orders"."order_id"
+
+Ref: "order_details"."order_detail_id" < "orders"."order_id"
