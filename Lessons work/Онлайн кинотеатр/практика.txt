@@ -1,0 +1,28 @@
+
+Table Users {
+user_id integer
+username varchar (128)
+surname varchar (128)
+email  varchar(50)
+// password not null integer 
+created_at timestamp 
+}
+
+Table Tickets {
+ticket_id integer
+user_id integer
+move_id integer
+created_at timestamp 
+}
+
+Table Moves{
+move_id integer
+name varchar
+date  timestamp
+location varchar
+price integer
+}
+
+ref: Users.user_id < Tickets.ticket_id
+ref: Tickets.ticket_id - Moves.move_id 
+ref: Users.user_id < Moves.move_id 
