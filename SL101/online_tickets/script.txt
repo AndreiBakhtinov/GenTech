@@ -1,0 +1,30 @@
+Table customers {
+  id integer [primary key]
+  email varchar
+}
+
+Table tickets {
+  id integer [primary key]
+  session_id integer
+  "place" integer
+}
+
+Table orders {
+  id integer [primary key]
+  customer_id integer
+  ticket_id integer
+}
+
+Table sessions {
+  id integer [primary key]
+  time_start time 
+  time_end time
+}
+
+
+
+Ref: tickets.id > orders.ticket_id // many-to-one
+
+Ref: customers.id < orders.customer_id // one-to-many
+
+Ref: sessions.id < tickets.session_id // one-to-many
