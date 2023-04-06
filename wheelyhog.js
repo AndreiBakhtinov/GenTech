@@ -53,3 +53,39 @@ Ref: "orders"."order_id" > "employees"."employee_id"
 Ref: "shippers"."shipper_id" < "orders"."order_id"
 
 Ref: "order_details"."order_detail_id" < "orders"."order_id"
+
+
+
+// Use DBML to define your database structure
+// Docs: https://www.dbml.org/docs
+
+Table customers {
+  customer_id integer
+  customer_name varchar
+  customer_email varchar
+  customer_password varchar
+
+}
+
+
+Table tickets {
+  ticket_id integer
+  user_id integer
+  event_id integer
+  place integer
+}
+
+Table events {
+  event_id integer
+  movie_id integer
+  event_price integer
+}
+
+
+
+
+Ref: "customers"."customer_id" < "tickets"."ticket_id"
+
+Ref: "events"."event_id" < "customers"."customer_id"
+
+Ref: "events"."event_id" < "tickets"."ticket_id"
