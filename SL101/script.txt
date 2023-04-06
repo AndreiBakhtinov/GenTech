@@ -37,7 +37,7 @@ Table suppliers {
   id integer [primary key]
 }
 
-Ref: products.id > order_details.product_id // many-to-one
+Ref: products.id < order_details.product_id // one-to-many
 
 Ref: customers.id < orders.customer_id // many-to-one
 
