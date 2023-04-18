@@ -1,0 +1,71 @@
+// https://dbdiagram.io/d/643e42f66b31947051c581be
+
+// Use DBML to define your database structure
+// Docs: https://www.dbml.org/docs
+
+TABLE Students {
+  StudentID INTEGER [PRIMARY KEY]
+  FirstName VARCHAR
+  LastName VARCHAR
+  Email VARCHAR
+  Password VARCHAR
+  RegistrationDate DATE
+}
+
+TABLE Teachers {
+  TeacherID INT [PRIMARY KEY]
+  FirstName VARCHAR
+  LastName VARCHAR
+  Email VARCHAR
+  Password VARCHAR
+  RegistrationDate DATE
+}
+
+TABLE Groups {
+  GroupID INT [PRIMARY KEY]
+  GroupName VARCHAR
+  TeacherID INT
+  StartDate DATE
+  EndDate DATE
+}
+
+TABLE Subjects {
+  SubjectID INT [PRIMARY KEY]
+  SubjectName VARCHAR
+}
+
+TABLE Schedule {
+  ScheduleID INT [PRIMARY KEY]
+  GroupID INT
+  TeacherID INT
+  SubjectID INT
+  LessonDate DATE
+  StartTime TIME
+  EndTime TIME 
+}
+
+TABLE Homework {
+  HomeworkID INT [PRIMARY KEY]
+  SubjectID INT
+  HomeworkName VARCHAR
+  StartDate DATE
+  EndDate DATE
+}
+
+TABLE Solutions {
+  SolutionID INT [PRIMARY KEY]
+  HomeworkID INT
+  StudentID INT
+  SolutionLink VARCHAR
+  UploadDate DATE
+}
+
+
+
+Ref: Groups.TeacherID > Teachers.TeacherID
+Ref: Schedule.GroupID > Groups.GroupID
+Ref: Schedule.TeacherID > Teachers.TeacherID
+Ref: Schedule.SubjectID > Subjects.SubjectID
+Ref: Homework.SubjectID > Subjects.SubjectID
+Ref: Solutions.HomeworkID > Homework.HomeworkID
+Ref: Solutions.StudentID > Students.StudentID
