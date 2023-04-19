@@ -1,0 +1,70 @@
+Table users {
+  user_id integer
+  name varchar
+  email varchar
+  password varchar
+  role varchar
+}
+
+Table groups {
+  group_id integer
+  name varchar
+  teacher_id integer
+  course_id integer
+}
+
+Table courses {
+course_id integer
+name varchar
+description varchar
+}
+
+Table subjects {
+  subject_id integer
+  name varchar
+}
+
+Table course_subjects {
+  course_id integer
+  subject_id integer
+}
+
+
+Table lessons {
+  lesson_id integer
+  name varchar
+  description varchar
+  course_id integer
+}
+
+Table schedules {
+  schedule_id integer
+  group_id integer
+  lesson_id integer
+  start_time datetime
+  end_time datetime
+}
+
+Ref: "groups"."group_id" < "users"."user_id"
+
+Ref: "groups"."group_id" < "courses"."course_id"
+
+Ref: "subjects"."subject_id" < "courses"."course_id"
+
+Ref: "courses"."course_id" < "lessons"."lesson_id"
+
+Ref: "schedules"."schedule_id" < "groups"."group_id"
+
+Ref: "schedules"."schedule_id" < "lessons"."lesson_id"
+
+Ref: "courses"."course_id" < "course_subjects"."course_id"
+
+Ref: "course_subjects"."subject_id" < "subjects"."subject_id"
+
+В таблице "users" будут храниться данные о зарегистрированных пользователях. Поле "role" позволяет отличить студентов от преподавателей.
+В таблице "courses" будут храниться данные о курсах, включая их название и описание.
+В таблице "subjects" будут храниться данные о направлениях обучения, таких как FE, BE и QA.
+В таблице "course_subjects" будет храниться информация о том, какие направления обучения включены в каждый курс.
+В таблице "lessons" будут храниться данные о занятиях для каждого курса.
+В таблице "groups" будут храниться данные о созданных группах, включая название группы, ID преподавателя, ведущего эту группу, и ID курса, который проходят участники этой группы.
+В таблице "schedules" будут храниться данные о расписании занятий для каждой группы. Для каждого занятия указываются ID группы и занятия, время начала и конца занятия.
