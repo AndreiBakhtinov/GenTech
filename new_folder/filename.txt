@@ -1,0 +1,8 @@
+dr-xr-xr-x  13 root root     0 Apr 22 07:53 sys
+drwxrwxrwt  21 root root   540 Apr 22 17:37 tmp
+drwxr-xr-x   9 root root  4096 Apr 16 09:56 usr
+drwxr-xr-x  12 root root  4096 Apr 17 10:35 var
+dr-xr-xr-x  13 root root     0 Apr 22 07:53 sys
+drwxrwxrwt  21 root root   540 Apr 22 17:37 tmp
+drwxr-xr-x   9 root root  4096 Apr 16 09:56 usr
+drwxr-xr-x  12 root root  4096 Apr 17 10:35 var
