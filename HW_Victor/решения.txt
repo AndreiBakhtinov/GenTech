@@ -1,0 +1,66 @@
+Спроектируйте схему реляционной БД для проекта онлайн-курсов. 
+Результат выгрузите по схеме Pull Requests.
+
+// ==============================
+Users {
+	users_id;
+	Name;
+	email;
+	is_active;
+}
+
+// ==============================
+Courses{
+	course_id;
+	title;
+	description;
+	created_at;
+	is_active;
+	users_id;
+}
+
+//==============================
+lessons{
+	lesson_id;
+	title;
+	description;
+	course_id;
+	is_active;
+}
+
+// ==============================
+Video_less{
+	Video_less_id;
+	user_id;
+	course_id;
+	lesson_id;
+	created_at;
+}
+
+// ==============================
+Homeworks{
+	Homework_id;
+	user_id;
+	lesson_id;
+	created_at;
+	feddback;
+}
+// ==============================
+
+
+Связи
+
+lessons.lesson_id (M:1) Video_less.lesson_id
+lessons.lesson_id (M:M) Homework_id.lesson_id
+lessons.course_id (1:1) Courses.course_id
+Users.users_id    (1:M) lessons.lesson_id
+Users.users_id    (1:M) Homeworks.users_id
+Users.users_id    (1:M) Courses.course_id
+
+
+
+
+
+// ==============================
+Конспект занятия
+https://western-appeal-39b.notion.site/GenTech-Mar-30-2023-405265a8c5b445a088440c3ce6d73ada

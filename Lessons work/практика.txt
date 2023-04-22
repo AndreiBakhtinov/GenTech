@@ -1,0 +1,55 @@
+
+Customers.CustomerID
+Categories.CategoryID
+Employees. EmployeeID
+Suppliers.SupplierID
+
+OrderDetails.OrderDetailID  (M:1) Orders.OrderID
+OrderDetails. OrderDetailID (M:1) Products.ProductID 
+Orders.OrderID              (M:1) Customers .CustomerID 
+Orders.OrderID 		    (M:1) Employees.EmployeeID
+Products.ProductID 	    (1:M) Suppliers.SupplierID 
+Products.ProductID 	    (1:M) Categories.CategoryID
+Orders.OrderID 	 	    (M:1) Shippers.ShipperID
+
+
+//=====================================================
+
+
+Table Customers {
+  CustomerID integer
+}
+
+Table Categories {
+  CategoryID integer 
+}
+Table Products {
+  ProductID  integer 
+}
+Table Employees {
+  EmployeeID integer 
+}
+
+Table Suppliers {
+  SupplierID integer 
+}
+
+Table OrderDetails {
+  OrderDetailID integer 
+}
+
+Table Orders {
+  OrderID integer 
+}
+
+Table Shippers {
+  ShipperID integer
+}
+
+ref: OrderDetails.OrderDetailID > Orders.OrderID
+ref: OrderDetails.OrderDetailID > Products.ProductID 
+ref: Orders.OrderID > Customers.CustomerID 
+ref: Orders.OrderID > Employees.EmployeeID
+ref: Products.ProductID < Suppliers.SupplierID 
+ref: Products.ProductID < Categories.CategoryID
+ref: Orders.OrderID > Shippers.ShipperID

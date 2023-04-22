@@ -1,2 +1,13 @@
 
-Добавил новый файл
+Customers.CustomerID
+Categories.CategoryID
+Employees. EmployeeID
+Suppliers.SupplierID
+
+OrderDetails.OrderDetailID  (M:1) Orders.OrderID
+OrderDetails. OrderDetailID (M:1) Products.ProductID 
+Orders.OrderID              (1:1) Customers .CustomerID 
+Orders.OrderID 		    (M:1) Employees.EmployeeID
+Products.ProductID 	    (1:M) Suppliers.SupplierID 
+Products.ProductID 	    (1:M) Categories.CategoryID
+Orders.OrderID 	 	    (M:1) Shippers.ShipperID
