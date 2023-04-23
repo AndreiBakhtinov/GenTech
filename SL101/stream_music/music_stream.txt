@@ -1,0 +1,53 @@
+// Платформа онлайн-прослушивания
+// музыкальных треков:
+
+Table users{
+  user_id int [pk, increment] // auto-increment
+  created_at timestamp
+  full_name varchar
+  email varchar
+  password varchar (hash)
+}
+
+Table tracks{
+  track_id int [pk, increment] // auto-increment
+  created_at timestamp
+  title varchar
+  duration_sec int
+  album_id int
+  artist_id int
+  file_url varchar
+}
+
+Table albums{
+  album_id int [pk, increment] // auto-increment
+  created_at timestamp
+  title varchar
+  artist_id int
+  release_date timestamp
+  poster_url varchar
+}
+
+Table artists{
+  artist_id int [pk, increment] // auto-increment
+  created_at timestamp
+  full_name varchar
+}
+
+Table playlists{
+  playlist_id int [pk, increment] // auto-increment
+  created_at timestamp
+  title varchar
+  user_id int
+  track_id int
+}
+
+Ref: "albums"."album_id" < "tracks"."album_id"
+
+Ref: "artists"."artist_id" < "tracks"."artist_id"
+
+Ref: "artists"."artist_id" < "albums"."artist_id"
+
+Ref: "users"."user_id" < "playlists"."user_id"
+
+Ref: "playlists"."track_id" < "tracks"."track_id"
