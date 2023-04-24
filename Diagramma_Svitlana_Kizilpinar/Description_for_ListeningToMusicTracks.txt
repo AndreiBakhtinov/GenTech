@@ -1,0 +1,50 @@
+table users {
+  user_id INTEGER [pk, increment]
+  username VARCHAR(50)
+  email VARCHAR(60)
+  password_hash VARCHAR(60)
+  registered_at TIMESTAMP
+}
+
+table artists {
+  artist_id INTEGER [pk, increment]
+  firstname VARCHAR(50)
+  lastname VARCHAR(50)
+  geboren_year integer
+}
+
+table albums {
+  album_id INTEGER [pk, increment]
+  title VARCHAR(50)
+  artist_id integer
+  year integer
+  created_at TIMESTAMP
+}
+
+table tracks {
+  track_id INTEGER [pk, increment]
+  title VARCHAR(50)
+  album_id integer
+  duration_sec integer
+  created_at TIMESTAMP
+}
+
+table playlists {
+  playlist_id INTEGER [pk, increment]
+  title VARCHAR(50)
+  user_id integer
+  created_at TIMESTAMP
+}
+
+table playlist_tracks{
+  id INTEGER [pk, increment]
+  playlist_id integer
+  track_id intager
+  created_at TIMESTAMP
+}
+
+Ref: albums.artist_id > artists.artist_id
+Ref: tracks.album_id > albums.album_id
+Ref: playlists.user_id > users.user_id
+Ref: playlist_tracks.playlist_id > playlists.playlist_id
+Ref: playlist_tracks.track_id > tracks.track_id
