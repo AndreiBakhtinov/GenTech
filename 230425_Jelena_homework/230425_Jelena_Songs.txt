@@ -1,0 +1,52 @@
+https://dbdiagram.io/d/644777436b3194705124b82c
+
+
+Table "Users" {
+  "id" INTEGER [pk]
+  "name" TEXT
+  "surname" TEXT
+  "email" TEXT [unique]
+  "password" TEXT
+  "registration_date" DATE
+}
+
+Table "Artists" {
+  "id" INTEGER [pk]
+  "name" TEXT
+}
+
+Table "Albums" {
+  "id" INTEGER [pk]
+  "title" TEXT
+  "release_year" INTEGER
+  "artist_id" INTEGER
+}
+
+Table "Tracks" {
+  "id" INTEGER [pk]
+  "title" TEXT
+  "duration" INTEGER
+  "album_id" INTEGER
+  "url" TEXT
+}
+
+Table "Playlists" {
+  "id" INTEGER [pk]
+  "name" TEXT
+  "user_id" INTEGER
+}
+
+Table "Playlist_Tracks" {
+  "playlist_id" INTEGER
+  "track_id" INTEGER
+}
+
+Ref:"Artists"."id" < "Albums"."artist_id"
+
+Ref:"Albums"."id" < "Tracks"."album_id"
+
+Ref:"Users"."id" < "Playlists"."user_id"
+
+Ref:"Playlists"."id" < "Playlist_Tracks"."playlist_id"
+
+Ref:"Tracks"."id" < "Playlist_Tracks"."track_id"
