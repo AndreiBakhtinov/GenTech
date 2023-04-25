@@ -1,0 +1,55 @@
+// Use DBML to define your database structure
+// Docs: https://www.dbml.org/docs
+Table customers {
+  id integer [primary key]
+}
+
+Table categories {
+  id integer [primary key]
+}
+
+Table employees {
+  id integer [primary key]
+}
+
+Table order_details {
+  id integer [primary key]
+  order_id integer
+  product_id integer 
+  
+}
+
+Table orders {
+  id integer [primary key]
+  customer_id integer 
+  employee_id integer 
+  shipper_id integer 
+}
+
+Table products {
+  id integer [primary key]
+  supplier_id integer 
+  category_id integer 
+}
+
+Table shippers {
+  id integer [primary key]
+}
+
+Table suppliers {
+  id integer [primary key]
+}
+
+Ref: products.id < order_details.product_id // one-to-many
+
+Ref: orders.id < order_details.product_id // one-to-many
+
+Ref: customers.id < orders.customer_id // many-to-one
+
+Ref: employees.id < orders.employee_id // many-to-one
+
+Ref: shippers.id < orders.shipper_id // many-to-one
+
+Ref: suppliers.id < products.supplier_id // many-to-one
+
+Ref: categories.id < products.category_id // many-to-one
