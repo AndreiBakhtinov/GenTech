@@ -1,0 +1,83 @@
+Описать схему БД "онлайн-курсы" для реализации указанных бизнес-процессов:
+
+
+Регистрация нового студента
+
+Регистрация нового преподавателя
+
+Формирование новой группы
+
+Добавление направлений (курсов) обучения (напр., FE/BE/QA)
+
+Добавление предметов
+
+Составление расписания
+
+(необяз.) Создание Д/З и их загрузка студентами.
+
+
+Для описания использовать инструмент https://dbdiagram.io/
+или любой другой. Результат выгрузить по схеме Pull Request.
+
+
+
+
+
+
+Table students{
+	id integer [primary key]
+	name varchar
+	email varchar
+	password varchar [not null]
+}
+
+Table teachers{
+	id integer [primary key]
+	name varchar
+	email varchar
+	password varchar [not null]
+}
+
+Table groups{
+	id integer [primary key]
+	name varchar
+	teacher_id integer
+	student_id integer
+	start_date timestamp
+	end_date timestamp
+}
+
+Table courses {
+	id integer [primary key]
+	name varchar
+	student_id integer
+	group_id integer
+	subject_id integer
+}
+
+Table subjects {
+	id integer [primary key]
+	name varchar
+	course_id integer
+	student_id integer
+}
+
+Table schedule {
+	id integer [primary key]
+	group_id integer
+	subject_id integer
+	date timestamp
+	time_start timestamp
+	time_end timestamp
+}
+
+
+Ref: groups.id <> students.id
+Ref: groups.id <> teachers.id
+Ref: groups.id > courses.id
+Ref: courses.id < subjects.id
+Ref: subjects.id < groups.id
+Ref: schedule.id > groups.id
+
+
+
