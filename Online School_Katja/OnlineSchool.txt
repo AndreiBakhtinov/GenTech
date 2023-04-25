@@ -1,0 +1,56 @@
+
+Table Students  {
+  id int [pk, increment] // auto-increment
+  full_name varchar
+  course_id int
+  registered_at timestamp
+  country_code int
+  group_id int
+}
+
+Table Teachers {
+  id int [pk, increment] 
+  full_name varchar
+  registered_at timestamp
+  subject_id int
+}
+
+Table Courses {
+  id int [pk, increment] 
+  title varchar
+ }
+
+Table Subject {
+  id int [pk, increment] 
+  title varchar
+  started_at timestamp
+  ended_at timestamp
+}
+
+Table Lessons {
+  id int [pk, increment] 
+  teacher_id int
+  students_id int
+  course_id int
+  group_id int
+  
+  started_at timestamp
+  ended_at timestamp
+ }
+
+ Table Groups {
+  id int [pk, increment] // auto-increment
+  student_id int
+  started_at timestamp
+  ended_at timestamp
+ }
+
+ Table Homeworks {
+  id int [pk, increment] // auto-increment
+  course_id int
+  teacher_id int
+  subject_id int
+  group_id int
+  date timestamp
+  deadline timestamp
+ }
