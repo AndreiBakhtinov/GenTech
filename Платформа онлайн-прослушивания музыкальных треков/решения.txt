@@ -1,0 +1,54 @@
+Разработать схему БД для проекта "платформа онлайн-прослушивания музыкальных треков". Результат выгрузить по схему Pull Request. 
+
+Конспект занятия
+https://western-appeal-39b.notion.site/GenTech-Apr-20-2023-0928e69e43f84ac6a72c079ca32b422d 
+
+
+
+Table users {
+   	  user_id integer [primary key]
+	    name String
+    	surname string
+	    email String 
+	    password_hash String 
+	    date_of_birth Date 
+	    registration_date Date 
+}
+
+Table	musics {
+  		music_id integer [primary key] 
+  		name String
+   		artist_id integer 
+   		album_id integer
+  		style String
+   		duration Number
+   		add_date Date 
+	}
+
+
+Table	playlists {
+		playlist_id integer [primary key] 
+		description String
+		creation_data Date
+		user_id integer 
+	}
+
+Table albums {
+		album_id integer [primary key]
+		album_name String
+		Order Number // номер трека в альбоме
+		artist_id integer
+	}
+
+Table artists {
+  		artist_id integer [primary key]
+    	name String
+   		description String
+	}
+
+
+Ref: musics.artist_id > artists.artist_id
+Ref: musics.album_id < albums.album_id
+Ref: playlists.music_id < musics.music_id
+Ref: playlists.user_id > users.user_id
+Ref: albums.artist_id < artists.artist_id

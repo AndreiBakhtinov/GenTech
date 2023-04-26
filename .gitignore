@@ -1,0 +1,20 @@
+What not to do interview 2.DS_Store
+
+.DS_Store
+
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+.mtj.tmp/
+
+*.mp4
+What not to do interview 2.mp4
+*.mpeg-4
+
+hs_err_pid*
+replay_pid*
