@@ -7,6 +7,10 @@
     <title>About company</title>
 
     <style>
+      :root {
+        --main-color: rgb(133, 1, 181);
+        --color-red: rgb(217, 59, 59);
+      }
       * {
         box-sizing: border-box;
       }
@@ -14,13 +18,15 @@
         background: white;
       }
       p {
-        color: blue;
+        color: var(--main-color);
         text-align: justify;
         line-height: 1.5;
         text-indent: 40px;
         letter-spacing: 2px;
       }
       h2 {
+        background: var(--main-color);
+        color: white;
         text-align: center;
         font-size: 20px;
         font-weight: 900;
