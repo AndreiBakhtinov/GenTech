@@ -5,6 +5,8 @@
 	-phone (varchar(20)) not null
 	-email (varchar(20)) not null
 	-group_id (int) foriegn key
+	
+	
 	-paid(decimal)
 	-created_at (date) not null
 	-updated_at (date)
@@ -74,4 +76,3 @@
 	-subject_teacher_id (int) foriegn key
 	-created_at (date) not null
 	-updated_at (date)
-
