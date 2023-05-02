@@ -1,0 +1,31 @@
+Table authority_types {
+  auth_types_id int [pk, increment]
+  type varchar
+  description varchar
+}
+
+Table issued_authorities {
+  issued_auth_id int [pk, increment]
+  author_id int
+  appointed_id int
+  auth_type_id int
+  created_at timestamp
+  start_time timestamp
+  finish_time timestamp
+}
+
+Table users {
+  user_id int [pk, increment]
+  first_name varchar
+  last_name varchar
+  age int
+  created_at timestamp
+}
+
+
+
+Ref: "users"."user_id" < "issued_authorities"."appointed_id"
+
+Ref: "users"."user_id" < "issued_authorities"."author_id"
+
+Ref: "authority_types"."auth_types_id" < "issued_authorities"."auth_type_id"
