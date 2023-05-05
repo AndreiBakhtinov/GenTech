@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea</title>
+</head>
+<body>
+
+    <div>
+        <textarea cols="30" rows="10" maxlength="50"></textarea>
+    </div>
+
+    <p>
+        Количество символов:
+        <span id="counter">50</span>
+        / 50
+    </p>
+
+    <script>
+        const text = document.querySelector('textarea'); // найти поле ввода
+        const counter = document.querySelector('#counter'); // найти счетчик
+
+        text.addEventListener('input', function() {
+            const maxLength = text.getAttribute('maxlength');
+            const remaining = maxLength - text.value.length;
+            counter.textContent = remaining;
+        });
+    </script>
+    
+</body>
+</html>
