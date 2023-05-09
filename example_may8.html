@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        :root {
+            --header-footer-height: 50px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+        header,
+        footer {
+            background: lightblue;
+            height: var(--header-footer-height);
+        }
+        .content {
+            height: calc(100% - var(--header-footer-height) * 2);
+            display: flex;
+        }
+        .left,
+        .right {
+            flex: 1;
+            background: gold;
+        }
+        .main {
+            flex: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <div class="content">
+        <div class="left"></div>
+        <div class="main"></div>
+        <div class="right"></div>
+    </div>
+
+    <footer></footer>
+    
+</body>
+</html>
