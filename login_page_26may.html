@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .form {
+        width: 250px;
+        aspect-ratio: 1 / 2;
+        background: blue;
+      }
+      html,
+      body,
+      .container {
+        height: 100%;
+      }
+      .container {
+        display: flex;
+      }
+      .left,
+      .right {
+        width: 50%;
+      }
+      figure {
+        height: 100%;
+        width: 100%;
+        line-height: 0;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="form"></div>
+      </div>
+
+      <div class="right">
+        <figure>
+          <img
+            src="https://images.unsplash.com/photo-1551739440-5dd934d3a94a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"
+            alt=""
+          />
+        </figure>
+      </div>
+    </div>
+  </body>
+</html>
